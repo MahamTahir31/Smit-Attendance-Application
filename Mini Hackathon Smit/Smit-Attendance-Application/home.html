@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/home.css">
+    <title>Smit Student Application</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+
+        <button type="button" class="navbar-burger" onclick="toggleMenuOpen()">
+            <span class="material-icons">menu</span>
+        </button>
+        <h1 class="navbar-title">StudHub</h1>
+        <nav class="navbar-menu">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </nav>
+    <div class="home-content">
+        
+        <h1 align="center"> SMIT STUDENT Application</h1>
+
+        <button><a href="#" id="Book-btn"> Book Now</a></button>
+    </div>
+    <script>
+        const toggleMenuOpen = () => document.body.classList.toggle("open");
+    </script>
+
+</body>
+</html>
