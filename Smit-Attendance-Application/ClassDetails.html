@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/classdetail.css">
+    <title>Admin/ Class Managemen</title>
+</head>
+<body>
+    <h1>Class Management</h1>
+    
+    <div class="form-container">
+        <h2>Add Class</h2>
+        <form id="class-form">
+            <label for="classTimings">Class Timings:</label>
+            <input type="text" id="classTimings" required>
+
+            <label for="schedule">Schedule of Classes:</label>
+            <input type="text" id="schedule" required>
+
+            <label for="teacherName">Teacher's Name:</label>
+            <input type="text" id="teacherName" required>
+
+            <label for="sectionName">Section Name:</label>
+            <input type="text" id="sectionName" required>
+
+            <label for="courseName">Course Name:</label>
+            <input type="text" id="courseName" required>
+
+            <label for="batchNumber">Batch Number:</label>
+            <input type="text" id="batchNumber" required>
+
+            <button type="submit">Add Class</button>
+        </form>
+    </div>
+
+    <div class="class-table">
+        <h2 align="center">Class Table</h2>
+        <table id="class-table">
+            <thead>
+                <tr>
+                    <th>Class Timings</th>
+                    <th>Schedule of Classes</th>
+                    <th>Teacher's Name</th>
+                    <th>Section Name</th>
+                    <th>Course Name</th>
+                    <th>Batch Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Class details will be displayed here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+      // Sample data for class details
+const classDetails = [];
+
+// Function to display class details in the table
+function displayClassTable() {
+    const classTableBody = document.querySelector("#class-table tbody");
+    classTableBody.innerHTML = '';
+
+    classDetails.forEach((classDetail) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${classDetail.classTimings}</td>
+            <td>${classDetail.schedule}</td>
+            <td>${classDetail.teacherName}</td>
+            <td>${classDetail.sectionName}</td>
+            <td>${classDetail.courseName}</td>
+            <td>${classDetail.batchNumber}</td>
+        `;
+        classTableBody.appendChild(row);
+    });
+}
+
+// Function to handle the form submission
+function addClass(event) {
+    event.preventDefault();
+
+    const classTimings = document.getElementById("classTimings").value;
+    const schedule = document.getElementById("schedule").value;
+    const teacherName = document.getElementById("teacherName").value;
+    const sectionName = document.getElementById("sectionName").value;
+    const courseName = document.getElementById("courseName").value;
+    const batchNumber = document.getElementById("batchNumber").value;
+
+    const classDetail = {
+        classTimings,
+        schedule,
+        teacherName,
+        sectionName,
+        courseName,
+        batchNumber
+    };
+
+    classDetails.push(classDetail);
+
+    // Clear the form fields
+    document.getElementById("class-form").reset();
+
+    // Update the class table
+    displayClassTable();
+}
+
+// Attach form submission event handler
+const classForm = document.getElementById("class-form");
+classForm.addEventListener("submit", addClass);
+
+// Initial display of class table
+displayClassTable();
+
+
+    </script>
+
+</body>
+</html>
